@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, VStack, Text, IconButton, Flex } from "@chakra-ui/react";
-import { X, Check } from "lucide-react";
+import { X } from "lucide-react";
 import { FilterState, Resource } from "../types/resources";
 import { useAppContext } from "../context/AppContext";
 import { CheckboxItem } from "../ui/CheckboxItem";
