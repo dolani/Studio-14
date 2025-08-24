@@ -1,12 +1,32 @@
-import { Box, Text } from "@chakra-ui/react";
+import React from "react";
+import { AppProvider } from "./context/AppContext";
+import { Box, Container, Flex } from "@chakra-ui/react";
+import Header from "./components/Header";
+import Banner from "./components/Banner";
+import FilterSidebar from "./components/FilterSidebar";
+import ResourceCards from "./components/ResourceCards";
+import MobileFilters from "./components/MobileFilters";
+
+import { mockResources } from "./data/resources";
 
 function App() {
   return (
-    <Box textAlign="center" p={10}>
-      <Text fontSize="2xl" mb={4}>
-        Hello Chakra UI
-      </Text>
-    </Box>
+    <AppProvider>
+      <Box bg="brand.200" minH="100vh" data-testid="app-page">
+        <Header />
+        <Banner />
+        <Box bg="brand.200">
+          <Container maxW="7xl" py={8}>
+            <Flex gap={8}>
+              <FilterSidebar />
+              <ResourceCards resources={mockResources} />
+            </Flex>
+          </Container>
+        </Box>
+
+        <MobileFilters />
+      </Box>
+    </AppProvider>
   );
 }
 
