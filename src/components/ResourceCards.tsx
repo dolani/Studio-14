@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Grid, Text, Button, HStack } from "@chakra-ui/react";
-import { Filter } from "lucide-react";
+import { Box, Grid, Text, Button, useBreakpointValue } from "@chakra-ui/react";
 import { Resource } from "../types/resources";
 import { useAppContext } from "../context/AppContext";
 import { ResourceCard } from "./ResourceCard";
+import filterIcon from "../assets/filterIcon.png";
 
 interface ResourceCardsProps {
   resources: Resource[];
@@ -11,6 +11,7 @@ interface ResourceCardsProps {
 
 const ResourceCards = ({ resources }: ResourceCardsProps) => {
   const { filters, searchState, showMobileFilters } = useAppContext();
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   // Filter resources based on search and category filters
   const filteredResources = resources.filter((resource) => {
@@ -24,12 +25,14 @@ const ResourceCards = ({ resources }: ResourceCardsProps) => {
       if (!matchesSearch) return false;
     }
 
+    // Document Type filter
     const docTypeFilters = filters.documentType;
     const anyDocTypeSelected = Object.values(docTypeFilters).some(Boolean);
     if (anyDocTypeSelected && !docTypeFilters[resource.type]) {
       return false;
     }
 
+    // Category filter
     const categoryMap: Record<
       string,
       keyof typeof filters.keyFoundationalPrinciples
@@ -49,26 +52,24 @@ const ResourceCards = ({ resources }: ResourceCardsProps) => {
   return (
     <Box flex={1}>
       {/* Mobile Show Filters Button */}
-      <Box display={{ base: "block", lg: "none" }} mb={6}>
-        <Button
-          w="full"
-          py={3}
-          px={4}
-          border="2px"
-          borderColor="yellow.400"
-          color="text.dark"
-          fontWeight="medium"
-          bg="transparent"
-          _hover={{ bg: "yellow.50" }}
-          onClick={showMobileFilters}
-          data-testid="button-show-filters"
-        >
-          <HStack gap={2}>
-            <Filter size={16} />
-            <Text>Show Filters</Text>
-          </HStack>
-        </Button>
-      </Box>
+      {isMobile && (
+        <Box mb={6}>
+          <Button
+            w="full"
+            py={3}
+            px={4}
+            variant="outline"
+            colorScheme="gray"
+            fontWeight="medium"
+            bg="gray.50"
+            onClick={showMobileFilters}
+            data-testid="button-show-filters"
+          >
+            <img src={filterIcon} alt="Link" width="20" height="20" />
+            Show Filters
+          </Button>
+        </Box>
+      )}
 
       <Grid
         templateColumns={{

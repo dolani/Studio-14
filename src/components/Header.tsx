@@ -82,18 +82,6 @@ const Header = () => {
         </HStack>
 
         <HStack gap={4}>
-          {/* Mobile menu button */}
-          {isMobile && (
-            <IconButton
-              onClick={onOpen}
-              aria-label="Open menu"
-              data-testid="button-mobile-menu"
-            >
-              <Menu size={20} />
-            </IconButton>
-          )}
-
-          {/* Toggle Switch - Desktop */}
           {!isMobile && (
             <HStack gap={3}>
               <Box
@@ -130,6 +118,34 @@ const Header = () => {
 
           {!isMobile && <Box w="1px" h={8} bg="gray.300" />}
 
+          {isMobile && (
+            <Box
+              w={11}
+              h={6}
+              bg={isEmployeeMode ? "gray.300" : "#314EF9"}
+              borderRadius="full"
+              cursor="pointer"
+              onClick={() => setIsEmployeeMode(!isEmployeeMode)}
+              transition="background-color 0.2s"
+              position="relative"
+              data-testid="toggle-employee-mode"
+            >
+              <Box
+                w={5}
+                h={5}
+                bg="white"
+                borderRadius="full"
+                shadow="md"
+                transform={
+                  isEmployeeMode ? "translateX(20px)" : "translateX(0)"
+                }
+                transition="transform 0.2s"
+                position="absolute"
+                top="2px"
+                left="2px"
+              />
+            </Box>
+          )}
           <HStack gap={2} cursor="pointer" data-testid="profile-menu">
             <Box
               w={8}
@@ -145,6 +161,18 @@ const Header = () => {
             >
               JA
             </Box>
+            {isMobile && (
+              <IconButton
+                backgroundColor="transparent"
+                color="#3C3C3C"
+                onClick={onOpen}
+                aria-label="Open menu"
+                data-testid="button-mobile-menu"
+              >
+                <Menu size={10} />
+              </IconButton>
+            )}
+
             {!isMobile && (
               <>
                 <Text color="#525252" fontWeight="600" fontSize="16px">
@@ -188,52 +216,25 @@ const Header = () => {
                 <Text fontSize="lg" fontWeight="semibold">
                   Menu
                 </Text>
-                <IconButton onClick={onClose} aria-label="Close menu" size="sm">
+                <IconButton
+                  onClick={onClose}
+                  aria-label="Close menu"
+                  size="sm"
+                  backgroundColor="transparent"
+                  color="#3C3C3C"
+                >
                   ×
                 </IconButton>
               </Flex>
               <Text data-testid="mobile-nav-dashboard">Dashboard</Text>
               <Text
-                color="brand.blue"
+                color="#314EF9"
                 fontWeight="medium"
                 data-testid="mobile-nav-resources"
               >
                 Resources
               </Text>
               <Text data-testid="mobile-nav-toolkit">Toolkit</Text>
-              <Box borderTop="1px" borderColor="gray.200" pt={3}>
-                <HStack justify="space-between">
-                  <Text fontSize="sm" color="text.medium">
-                    Switch to Employee
-                  </Text>
-                  <Box
-                    w={11}
-                    h={6}
-                    bg={isEmployeeMode ? "brand.blue" : "gray.300"}
-                    borderRadius="full"
-                    cursor="pointer"
-                    onClick={() => setIsEmployeeMode(!isEmployeeMode)}
-                    transition="background-color 0.2s"
-                    position="relative"
-                    data-testid="mobile-toggle-employee-mode"
-                  >
-                    <Box
-                      w={5}
-                      h={5}
-                      bg="white"
-                      borderRadius="full"
-                      shadow="md"
-                      transform={
-                        isEmployeeMode ? "translateX(20px)" : "translateX(0)"
-                      }
-                      transition="transform 0.2s"
-                      position="absolute"
-                      top="2px"
-                      left="2px"
-                    />
-                  </Box>
-                </HStack>
-              </Box>
             </VStack>
           </Box>
         </Box>

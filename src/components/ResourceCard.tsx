@@ -96,7 +96,7 @@ export const ResourceCard = ({ resource, onClick }: ResourceCardProps) => {
       transition="all 0.2s"
       cursor="pointer"
       position="relative"
-      h="270px"
+      h={{ base: "250px", md: "270px" }}
       overflow="hidden"
       onClick={onClick}
       data-testid={`card-resource-${resource.id}`}

@@ -3,6 +3,7 @@ import { Box, VStack, Text, IconButton, Flex } from "@chakra-ui/react";
 import { X, Check } from "lucide-react";
 import { FilterState, Resource } from "../types/resources";
 import { useAppContext } from "../context/AppContext";
+import { CheckboxItem } from "../ui/CheckboxItem";
 
 interface MobileFiltersProps {
   resources?: Resource[];
@@ -28,37 +29,6 @@ const MobileFilters: React.FC<MobileFiltersProps> = () => {
       },
     });
   };
-
-  const CheckboxItem: React.FC<{
-    checked: boolean;
-    onChange: (checked: boolean) => void;
-    label: string;
-    testId: string;
-  }> = ({ checked, onChange, label, testId }) => (
-    <Box
-      display="flex"
-      alignItems="center"
-      cursor="pointer"
-      onClick={() => onChange(!checked)}
-    >
-      <Box
-        w={4}
-        h={4}
-        border="2px"
-        borderColor={checked ? "text.dark" : "gray.400"}
-        bg={checked ? "text.dark" : "transparent"}
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        mr={3}
-        transition="all 0.2s"
-        data-testid={testId}
-      >
-        {checked && <Check size={12} color="white" />}
-      </Box>
-      <Text color={checked ? "text.dark" : "text.medium"}>{label}</Text>
-    </Box>
-  );
 
   if (!isMobileFiltersOpen) return null;
 
@@ -86,6 +56,8 @@ const MobileFilters: React.FC<MobileFiltersProps> = () => {
               Filters
             </Text>
             <IconButton
+              backgroundColor="transparent"
+              color="#3C3C3C"
               onClick={closeMobileFilters}
               aria-label="Close filters"
               data-testid="button-close-mobile-filters"
@@ -95,7 +67,6 @@ const MobileFilters: React.FC<MobileFiltersProps> = () => {
           </Flex>
 
           <VStack gap={8} align="stretch">
-            {/* Key Foundational Principles */}
             <Box>
               <Text fontWeight="semibold" color="text.dark" mb={4}>
                 Key Foundational Principles
