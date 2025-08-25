@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, VStack, Heading, Text } from "@chakra-ui/react";
-import { FilterState } from "../types/resources";
-import { useAppContext } from "../context/AppContext";
-import { CheckboxItem } from "../ui/CheckboxItem";
+import { FilterState } from "../../types/resources";
+import { useAppContext } from "../../context/AppContext";
+import { CheckboxItem } from "../../ui/CheckboxItem/CheckboxItem";
 
 type FilterSectionProps = {
   title: string;

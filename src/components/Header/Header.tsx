@@ -11,7 +11,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { Menu, ChevronDown } from "lucide-react";
-import logoImage from "../assets/logo.png";
+import logoImage from "../../assets/logo.png";
 
 const Header = () => {
   const [isEmployeeMode, setIsEmployeeMode] = useState(true);

@@ -1,10 +1,8 @@
 import React from "react";
 import { Box, Container, Heading, Text } from "@chakra-ui/react";
-import { useAppContext } from "../context/AppContext";
+import SearchBar from "../../ui/SearchBar/SearchBar";
 
 const Banner = () => {
-  const { searchState, handleSearchChange } = useAppContext();
-
   return (
     <Box bg="brand.100" py={12}>
       <Container maxW="7xl" textAlign="center">
@@ -32,6 +30,7 @@ const Banner = () => {
           commodo nulla facilisi nullam vehicula ipsum a arcu cursus vitae
           congue
         </Text>
+        <SearchBar />
       </Container>
     </Box>
   );

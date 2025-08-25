@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Text } from "@chakra-ui/react";
 import { FileText } from "lucide-react";
-import linkIcon from "../assets/link.png";
-import pdfIcon from "../assets/pdf.png";
-import playIcon from "../assets/video.png";
-import { Resource } from "../types/resources";
+import linkIcon from "../../assets/link.png";
+import pdfIcon from "../../assets/pdf.png";
+import playIcon from "../../assets/video.png";
+import { Resource } from "../../types/resources";
 
 type ResourceCardProps = {
   resource: Resource;

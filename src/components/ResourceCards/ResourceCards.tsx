@@ -1,9 +1,9 @@
 import React from "react";
 import { Box, Grid, Text, Button, useBreakpointValue } from "@chakra-ui/react";
-import { Resource } from "../types/resources";
-import { useAppContext } from "../context/AppContext";
-import { ResourceCard } from "./ResourceCard";
-import filterIcon from "../assets/filterIcon.png";
+import { Resource } from "../../types/resources";
+import { useAppContext } from "../../context/AppContext";
+import { ResourceCard } from "../ResourceCard/ResourceCard";
+import filterIcon from "../../assets/filterIcon.png";
 
 interface ResourceCardsProps {
   resources: Resource[];

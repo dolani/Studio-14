@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Input } from "@chakra-ui/react";
 import { Search } from "lucide-react";
-import { useAppContext } from "../context/AppContext";
+import { useAppContext } from "../../context/AppContext";
 
 const SearchBar = () => {
   const { searchState, handleSearchChange } = useAppContext();

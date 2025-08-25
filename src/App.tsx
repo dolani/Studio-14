@@ -1,10 +1,10 @@
 import React from "react";
 import { Box, Container, useBreakpointValue } from "@chakra-ui/react";
-import Header from "./components/Header";
-import Banner from "./components/Banner";
-import FilterSidebar from "./components/FilterSidebar";
-import ResourceCards from "./components/ResourceCards";
-import MobileFilters from "./components/MobileFilters";
+import Header from "./components/Header/Header";
+import Banner from "./components/Banner/Banner";
+import FilterSidebar from "./components/FilterSidebar/FilterSidebar";
+import ResourceCards from "./components/ResourceCards/ResourceCards";
+import MobileFilters from "./components/MobileFilters/MobileFilters";
 import { AppProvider } from "./context/AppContext";
 import { mockResources } from "./data/resources";
 
