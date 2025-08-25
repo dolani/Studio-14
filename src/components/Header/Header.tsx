@@ -14,7 +14,7 @@ import { Menu, ChevronDown } from "lucide-react";
 import logoImage from "../../assets/logo.png";
 
 const Header = () => {
-  const [isEmployeeMode, setIsEmployeeMode] = useState(true);
+  const [isEmployeeMode, setIsEmployeeMode] = useState(false);
   const { open, onOpen, onClose } = useDisclosure();
   const isMobile = useBreakpointValue({ base: true, md: false });
 
@@ -87,7 +87,7 @@ const Header = () => {
               <Box
                 w={11}
                 h={6}
-                bg={!isEmployeeMode ? "gray.300" : "#314EF9"}
+                bg={isEmployeeMode ? "gray.300" : "#314EF9"}
                 borderRadius="full"
                 cursor="pointer"
                 onClick={() => setIsEmployeeMode(!isEmployeeMode)}
