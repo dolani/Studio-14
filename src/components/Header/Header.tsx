@@ -87,7 +87,7 @@ const Header = () => {
               <Box
                 w={11}
                 h={6}
-                bg={isEmployeeMode ? "gray.300" : "#314EF9"}
+                bg={!isEmployeeMode ? "gray.300" : "#314EF9"}
                 borderRadius="full"
                 cursor="pointer"
                 onClick={() => setIsEmployeeMode(!isEmployeeMode)}
